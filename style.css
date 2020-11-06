@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+}
+
+#mancala-title {
+    display: flex;
+    color: black;
+    font-size: 30;
+    font-weight: 500;
+    justify-content: center;
+}
+
+/* #container {
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 150px 150px 150px;
+    border: 2px black;
+    color: black;
+} */
+
+#container {
+    justify-content: center;
+    display: grid;
+    grid-template-rows: 10px 10px
+    grid-template-columns: 2vmin 2vmin 2vmin 2vmin 2vmin 2vmin 2vmin 2vmin;
+    border: 2px black;
+    
+}
+
+.pocket {
+    padding: 1vmin;
+    display: grid;
+    border-radius: 40%;
+    border: 2px black;
+    color: black;
+
+}
+
+#player-1 {
+
+}
