@@ -44,5 +44,10 @@ body {
 }
 
 #player-1 {
+    padding: 1vmin;
+    display: grid;
+    border-radius: 20%;
+    border: 2px black;
+    color: black;
 
 }
