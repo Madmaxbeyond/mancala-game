@@ -1,5 +1,4 @@
 /*----- constants -----*/
-const board = [];
 const players = {
     '1': 'pink',
     '-1': 'green',
@@ -7,13 +6,15 @@ const players = {
 
 
 /*----- app's state (variables) -----*/
-let turn = true;
+let turn;
+let board;
 
 
 
 
 /*----- cached element references -----*/
-
+let msgEl = document.getElementById('msg', render);
+let replay = document.getElementById('button', init);
 
 
 /*----- event listeners -----*/
@@ -22,6 +23,17 @@ let turn = true;
 
 
 /*----- functions -----*/
+function handleClick() {
+
+}
 
 
+function init() {
 
+    render();
+}
+
+
+function render() {
+
+}

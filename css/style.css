@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+body {
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    /* display: flex; */
+}
+
+main {
+    display: flex;
+}
+
+#mancala-title {
+    display: flex;
+    color: black;
+    font-size: 30;
+    font-weight: 500;
+    justify-content: center;
+}
+
+#container {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 80px 80px;
+    grid-template-columns: 100px 80px 80px 80px 80px 80px 80px 100px;
+    border: 10px black;
+    background-color: blueviolet;
+
+}
+
+
+.pocket-a {
+    grid-column-start: 2 / 7;
+    /* grid-row-start: 1; */
+    /* grid-row-end: 2; */
+    margin: 6px;
+    padding: 4vmin;
+    /* display: grid; */
+    border-radius: 40%;
+    /* border: 2px black;
+    color: black; */
+    background-color: white;
+}
+
+#heaven {
+    background-color: blueviolet;
+    z-index: 0;
+}
+
+.pocket-b {
+    grid-column-start: 2 / 7;
+    /* grid-row-end: 2; */
+    /* grid-row-start: 2; */
+    margin: 6px;
+    padding: 4vmin;
+    /* display: grid; */
+    border-radius: 40%;
+    border: 2px black;
+    /* color: black; */
+    background-color: white;
+}
+
+.player-1 {
+    grid-column-start: 1;
+    grid-row: span 1 / 2;
+    height: 150px;
+    /* width: 60px; */
+    display: grid;
+    border-radius: 40%;
+    border: 10px black;
+    color: black;
+    background-color: black;
+    margin: 5px;
+    padding: 10px;
+    z-index: 1;
+}
+
+
+.player-2 {
+    grid-column-start: 8;
+    grid-row: span 1 / 2;
+    height: 150px;
+    /* width: 60px; */
+    display: grid;
+    border-radius: 40%;
+    border: 10px black;
+    color: black;
+    background-color: black;
+    margin: 5px;
+    padding: 10px;
+}
+
+#replay-btn {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
