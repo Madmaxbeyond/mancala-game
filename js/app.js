@@ -2,6 +2,7 @@
 const players = {
     '1': 'pink', // currentPits
     '-1': 'green', // otherPits
+    'null': 'white',
 }
 
 
