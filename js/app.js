@@ -7,21 +7,21 @@ const players = {
 
 /*----- app's state (variables) -----*/
 let turn = 1;
+let board;
 
-
-let currentPits = [4, 4, 4, 4, 4, 4];
-let otherPits = [4, 4, 4, 4, 4, 4];
-let currentWell = 0;
-let otherWell = 0;
+let currentPits;
+let otherPits;
+let currentWell;
+let otherWell;
 let winner;
 
 
 
 /*----- cached element references -----*/
-let pits = document.querySelectorAll('.pocket-a');
-let pits = document.querySelectorAll('.pocket-b');
+let currentPits = document.querySelectorAll('.pocket-a');
+let otherPits = document.querySelectorAll('.pocket-b');
 let msgEl = document.getElementById('msg');
-let replayBtn = document.getElementById('button');
+let replayBtn = document.getElementById('replay-btn');
 
 
 /*----- event listeners -----*/
@@ -62,13 +62,26 @@ function addStones(pit, stones) {
 
 
 function init() {
+    currentPits = [3, 3, 3, 3, 3, 3];
+    otherPits = [3, 3, 3, 3, 3, 3];
+    currentWell = 0;
+    otherWell = 0;
+    winner;
 
     render();
 }
 
 
 function render() {
-
+    for(let i = 0; i < board.length; i++) {
+        currentPits[i].style.backgroundColor = players[board[i]];
+    } 
+    if(turn === 1) {
+        msgEl.innerText = "Next player's turn!";
+    } 
+    if(turn === -1) {
+        msgEl.innerText = "Next player's turn!";
+    }
 }
 
 
