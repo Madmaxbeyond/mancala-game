@@ -42,8 +42,9 @@ main {
     padding: 4vmin;
     /* display: grid; */
     border-radius: 40%;
-    /* border: 2px black;
-    color: black; */
+    /* border: 2px black; */
+    color: black;
+    text-align: center;
     background-color: white;
 }
 
@@ -73,7 +74,7 @@ main {
     display: grid;
     border-radius: 40%;
     border: 10px black;
-    color: black;
+    color: whitesmoke;
     background-color: black;
     margin: 5px;
     padding: 10px;
@@ -89,10 +90,11 @@ main {
     display: grid;
     border-radius: 40%;
     border: 10px black;
-    color: black;
+    color: whitesmoke;
     background-color: black;
     margin: 5px;
     padding: 10px;
+    text-align: center;
 }
 
 #replay-btn {

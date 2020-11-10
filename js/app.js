@@ -1,7 +1,7 @@
 /*----- constants -----*/
 const players = {
-    '1': 'pink', // currentPits
-    '-1': 'green', // otherPits
+    '1': 'pink', 
+    '-1': 'green', 
     'null': 'white',
 }
 
@@ -9,17 +9,13 @@ const players = {
 /*----- app's state (variables) -----*/
 let turn = 1;
 let board;
-
-let currentPits;
-let otherPits;
-let currentWell;
-let otherWell;
+// let scores; // need to add scores function, possibly with reduce method??
 let winner;
 
 
 
 /*----- cached element references -----*/
-let currentPits = document.querySelectorAll('.pocket-a');
+let currentPits = document.querySelectorAll('.pocket-a'); // can board equal this and pocket-a and pocket-b ??
 let otherPits = document.querySelectorAll('.pocket-b');
 let msgEl = document.getElementById('msg');
 let replayBtn = document.getElementById('replay-btn');
@@ -32,18 +28,7 @@ document.getElementById('replay-btn').addEventListener('click', init);
 
 
 /*----- functions -----*/
-// Will need the below function for trading off turns. Need to change terms
-// function handleClick(evt) {
-//     if (evt.target.id === 'container') return;
-//     if (board[evt.target.id]) return;
-//     if (winner === true) return;
-//     board[evt.target.id] = turn;
-//     turn *= -1;
-//     render();
-// }
-
-
-function handleClick() {
+function handleClick(evt) {
     if (evt.target.id === 'container') return;
     // if (board[evt.target.id]) return;
     // if (winner === true) return;
@@ -52,35 +37,54 @@ function handleClick() {
     render();
 }
 
-function addStones() {
-
+function handleMove(evt) {
+    let pitIndex = parseInt(evt.target.id);
+    let numOfStones = board[pitIndex];
+    board[pitIndex] = 0;
+    while (numOfStones > 0) {
+        if(pitIndex + 1 > 11) {
+            pitIndex = 0;
+        } else {
+            board[pitIndex + 1] += 1;
+            numOfStones -= 1;
+            pitIndex += 1;
+        }
+        console.log(board);
+    }
+    if(pitIndex === 0 && turn === 1) {
+        turn *= -1 * -1;
+    }
+    if(pitIndex === 7 && turn === -1) {
+        turn *= -1 * -1;
+    }
+    render();
 }
+
+// function extraTurn() {
+//     if ()
+//      turn *= -1 * -1;
+// }
 
 function moveStones() {
-
+    for(i = 0; i <= numOfStones; i++) { // possibly just = needed
+        board[pitIndex] = 0;
+        board[i] += 1;
+    if(board[pitIndex] === 0 && turn === -1) {
+        board[0] += 0;
+    } else if (board[pitIndex] === 7 && turn === 1) {
+        board[7] += 0;
+    }
+  }
 }
-
-// Changing number of stones in each pit
-// pit is index number of pit and stones is number of stones
-// function addStones(pit, stones) {
-//     if(pit === 6) {
-//         currentWell += stones;
-//     } else if (pit === 13) {
-//         otherWell[pit] += stones;
-//     } else if (pit < 6) {
-//         currentPits[pit] += stones;
-//     } else if (pit > 6) {
-//         otherPits[pit - 7] += stones;
-//     }
-// }
 
 init();
 
 function init() {
-    currentPits = [3, 3, 3, 3, 3, 3];
-    otherPits = [3, 3, 3, 3, 3, 3];
-    currentWell = 0;
-    otherWell = 0;
+    board = [0, 3, 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 3];
+    // currentPits = [3, 3, 3, 3, 3, 3];
+    // otherPits = [3, 3, 3, 3, 3, 3];
+    // currentWell = 0;
+    // otherWell = 0;
     winner;
 
     render();
@@ -89,7 +93,7 @@ function init() {
 
 function render() {
     for(let i = 0; i < board.length; i++) {
-        currentPits[i].style.backgroundColor = players[board[i]];
+        board[i].style.backgroundColor = players[board[i]];
     } 
     if(turn === 1) {
         msgEl.innerText = "Next player's turn!";
@@ -97,11 +101,11 @@ function render() {
     if(turn === -1) {
         msgEl.innerText = "Next player's turn!";
     }
-    if(currentPits === 0) {
-        msgEl.innerText = "Player One wins!";
-    } else if(otherPits === 0) {
-        msgEl.innerText = "Player Two wins!";
-    }
+    // if(currentPits === 0) {
+    //     msgEl.innerText = "Player One wins!";
+    // } else if(otherPits === 0) {
+    //     msgEl.innerText = "Player Two wins!";
+    // }
 }
 
 // Above include click events to change numbers inside pits/pockets
