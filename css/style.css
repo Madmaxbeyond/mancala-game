@@ -13,6 +13,7 @@ body {
 
 main {
     display: flex;
+    
 }
 
 #mancala-title {
@@ -31,8 +32,22 @@ main {
     border: 10px black;
     background-color: blueviolet;
     padding: 15px;
+    border-radius: 5%;
 }
 
+.pocket {
+    grid-column-start: 2 / 7;
+    /* grid-row-start: 1; */
+    /* grid-row-end: 2; */
+    margin: 6px;
+    padding: 4vmin;
+    /* display: grid; */
+    border-radius: 40%;
+    /* border: 2px black; */
+    color: black;
+    text-align: center;
+    background-color: white;
+}
 
 .pocket-a {
     grid-column-start: 2 / 7;

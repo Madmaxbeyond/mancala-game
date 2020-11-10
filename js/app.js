@@ -12,13 +12,16 @@ let board;
 // let scores; // need to add scores function, possibly with reduce method??
 let winner;
 
-
+let numOfStones = board[pitIndex];
 
 /*----- cached element references -----*/
-let currentPits = document.querySelectorAll('.pocket-a'); // can board equal this and pocket-a and pocket-b ??
-let otherPits = document.querySelectorAll('.pocket-b');
+// let currentPits = document.querySelectorAll('.pocket-a'); // can board equal this and pocket-a and pocket-b ??
+// let otherPits = document.querySelectorAll('.pocket-b');
+let stones = document.querySelectorAll('.pocket');
 let msgEl = document.getElementById('msg');
 let replayBtn = document.getElementById('replay-btn');
+
+// let stonesNumberB = document.querySelectorAll('.pocket-b');
 
 
 /*----- event listeners -----*/
@@ -39,7 +42,7 @@ function handleClick(evt) {
 
 function handleMove(evt) {
     let pitIndex = parseInt(evt.target.id);
-    let numOfStones = board[pitIndex];
+    // let numOfStones = board[pitIndex];
     board[pitIndex] = 0;
     while (numOfStones > 0) {
         if(pitIndex + 1 > 11) {
@@ -85,7 +88,7 @@ function init() {
     // otherPits = [3, 3, 3, 3, 3, 3];
     // currentWell = 0;
     // otherWell = 0;
-    winner;
+    winner = false;
 
     render();
 }
@@ -93,7 +96,9 @@ function init() {
 
 function render() {
     for(let i = 0; i < board.length; i++) {
-        board[i].style.backgroundColor = players[board[i]];
+        squares[i].style.backgroundColor = images[board[i]];
+
+        // stones[i].innerText = numOfStones[board[i]];
     } 
     if(turn === 1) {
         msgEl.innerText = "Next player's turn!";
@@ -105,6 +110,16 @@ function render() {
     //     msgEl.innerText = "Player One wins!";
     // } else if(otherPits === 0) {
     //     msgEl.innerText = "Player Two wins!";
+    // }
+    if(turn === 1) {
+        stones.innerText = `${numOfStones}`;
+    }
+    // winning();
+    // if(numStones > {{otherPlayerStones}} && turn === 1) { // include the otherPlayerStones as a reduce method to tally the scores (scores function?)
+    //     msgEl.innerText = "Player One Wins!";
+    // }
+    // if(winner === true && turn === -1) {
+    //     msgEl.innerText = "Player Two Wins!";
     // }
 }
 
