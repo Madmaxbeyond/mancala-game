@@ -30,7 +30,7 @@ main {
     grid-template-columns: 100px 80px 80px 80px 80px 80px 80px 100px;
     border: 10px black;
     background-color: blueviolet;
-
+    padding: 15px;
 }
 
 
@@ -96,7 +96,9 @@ main {
 }
 
 #replay-btn {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
-    background-color: white;
+    background-color: purple;
+    color: white;
+    text-align: center;
 }

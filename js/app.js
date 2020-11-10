@@ -44,23 +44,37 @@ document.getElementById('replay-btn').addEventListener('click', init);
 
 
 function handleClick() {
+    if (evt.target.id === 'container') return;
+    // if (board[evt.target.id]) return;
+    // if (winner === true) return;
+    board[evt.target.id] = turn;
+    turn *= -1;
+    render();
+}
+
+function addStones() {
+
+}
+
+function moveStones() {
 
 }
 
 // Changing number of stones in each pit
 // pit is index number of pit and stones is number of stones
-function addStones(pit, stones) {
-    if(pit === 6) {
-        currentWell += stones;
-    } else if (pit === 13) {
-        otherWell[pit] += stones;
-    } else if (pit < 6) {
-        currentPits[pit] += stones;
-    } else if (pit > 6) {
-        otherPits[pit - 7] += stones;
-    }
-}
+// function addStones(pit, stones) {
+//     if(pit === 6) {
+//         currentWell += stones;
+//     } else if (pit === 13) {
+//         otherWell[pit] += stones;
+//     } else if (pit < 6) {
+//         currentPits[pit] += stones;
+//     } else if (pit > 6) {
+//         otherPits[pit - 7] += stones;
+//     }
+// }
 
+init();
 
 function init() {
     currentPits = [3, 3, 3, 3, 3, 3];
@@ -83,7 +97,14 @@ function render() {
     if(turn === -1) {
         msgEl.innerText = "Next player's turn!";
     }
+    if(currentPits === 0) {
+        msgEl.innerText = "Player One wins!";
+    } else if(otherPits === 0) {
+        msgEl.innerText = "Player Two wins!";
+    }
 }
+
+// Above include click events to change numbers inside pits/pockets
 
 
 /*----- pseudo code pour moi -----*/
