@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mancala</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/app.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="mancala-title">
-        <h3>Mancala</h3>
+      <h3>Mancala</h3>
     </div>
     <div id="msg">Good luck!</div>
-    <br>
+    <br />
     <main>
-<div id="container">
-        <div class="player-1" id="0">0</div>
+      <div id="container">
+        <div id="player-1">
+          <div class="pocket" id="0">0</div>
+        </div>
         <div class="pocket" id="1">3</div>
         <div class="pocket" id="2">3</div>
         <div class="pocket" id="3">3</div>
-        <div class="pocket-a" id="4">3</div>
-        <div class="pocket-a" id="5">3</div>
-        <div class="pocket-a" id="6">3</div>
-        <div class="pocket-b" id="heaven"></div>
-        <div class="pocket-b" id="13">3</div>
-        <div class="pocket-b" id="12">3</div>
-        <div class="pocket-b" id="11">3</div>
-        <div class="pocket-b" id="10">3</div>
-        <div class="pocket-b" id="9">3</div>
-        <div class="pocket-b" id="8">3</div>
-        <div class="player-2" id="7">0</div>
-</div>
-</main>
-<br>
-<button class="replay-btn" id="replay-btn">PLAY AGAIN</button>
-</body>
+        <div class="pocket" id="4">3</div>
+        <div class="pocket" id="5">3</div>
+        <div class="pocket" id="6">3</div>
+        <div class="hidden" id="heaven"></div>
+        <div id="player-2">
+          <div class="pocket" id="7">3</div>
+        </div>
+        <div class="pocket" id="13">3</div>
+        <div class="pocket" id="12">3</div>
+        <div class="pocket" id="11">3</div>
+        <div class="pocket" id="10">3</div>
+        <div class="pocket" id="9">3</div>
+        <div class="pocket" id="8">0</div>
+      </div>
+    </main>
+    <br />
+    <button class="replay-btn" id="replay-btn">PLAY AGAIN</button>
+  </body>
 </html>
