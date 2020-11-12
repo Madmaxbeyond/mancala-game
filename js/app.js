@@ -1,25 +1,16 @@
 /*----- constants -----*/
-const players = {
-    '1': 'pink', // player-1
-    '-1': 'green', // player-2
-    'null': 'white',
-}
+
 
 /*----- app's state (variables) -----*/
 let turn = 1;
 let board;
-// let scores; // need to add scores function, possibly with reduce method??
-let winner;
-
-
+let gameOver;
 
 
 /*----- cached element references -----*/
 let pockets = document.querySelectorAll('.pocket');
 let msgEl = document.getElementById('msg');
 let replayBtn = document.getElementById('replay-btn');
-
-
 
 
 /*----- event listeners -----*/
@@ -52,14 +43,22 @@ function handleMove(evt) {
     if (evt.target.id === 'container') return;
 
     let pitIndex = parseInt(evt.target.id);
-    let numOfStones = board[pitIndex]
+    let numOfStones = board[pitIndex];
 
     board[pitIndex] = 0;
-    pitIndex += 1
+    pitIndex += 1;
 
     while (numOfStones > 0) {
+        // Sends stone around the loop if it lands above index 13
         if (pitIndex === 14){
-            pitIndex = 0
+            pitIndex = 0;
+        }
+        // Skips opposite player's pit during turn. (Favorite ¯\_(ツ)_/¯ )
+        if (pitIndex === 0 && turn === 1) {
+            pitIndex = 1;
+        }
+        if (pitIndex === 7 && turn === -1) {
+            pitIndex = 8;
         }
         // continue? to skip wells at 0 and 7
         board[pitIndex] += 1;
@@ -68,7 +67,6 @@ function handleMove(evt) {
     }
     turn *= -1;
     render();
-    console.log(board);
 }
 
 init();
@@ -76,31 +74,39 @@ init();
 function init() {
     board = [0, 3, 3, 3, 3, 3, 3, 0, 3, 3, 3, 3, 3, 3];
     turn = 1;
-    winner = false;
+    gameOver = false;
     render();
 }
 
 function render() {
-    console.log(board)
     board.forEach(function(numOfStones, idx) {
         pockets[idx].innerHTML = numOfStones;
     })
     if(turn === 1) {
-        msgEl.innerText = "Player One's turn!";
+        msgEl.innerText = "Player One, it's your turn!";
     } 
     if(turn === -1) {
-        msgEl.innerText = "Player Two's turn!";
+        msgEl.innerText = "Your turn Player Two!";
     }
-};
 
+    gameOverBabe();
 
-/*----- pseudo code pour moi -----*/
-// - Write a function called gameStatus that takes two arguments, one an array and one an index value in the array.
-// - Lowest index value is 0, highest value is 12
-// - Set the value at given index to 0, then add the value of the index to each preceding index by adding one to each index.
-// - The function should return the given array now with the changed values.
+    if(board[0] > board[7] && gameOver === true) {
+        msgEl.innerText = "Player Two Wins!";
+    }
+    if(board[7] > board[0] && gameOver === true) {
+        msgEl.innerText = "Player Ones Wins!";
+    }
+    if(board[7] === board[0] && gameOver === true) {
+        msgEl.innerText = "It's rare but it happens...It's a Tie!";
+    }
+}
 
-// Examples:
-// gameStatus([3,3,4,2,3,5,1,3,3,3,3,3], 4); //=> [3,3,4,2,0,6,2,4,3,3,3,3]
-// gameStatus([0,0,3,0,0,6], 2); //=> [0,0,0,1,1,7]
-
+function gameOverBabe() {
+    if(board[1] + board[2] + board[3] + board[4] + board[5] + board[6] === 0) {
+        return gameOver = true;
+    }
+    if(board[8] + board[9] + board[10] + board[11] + board[12] + board[13] === 0) {
+        return gameOver = true;
+    }
+}

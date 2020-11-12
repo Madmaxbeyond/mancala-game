@@ -90,13 +90,17 @@ main {
   background-color: white;
 }
 
+#lower-msg {
+    justify-content: center;
+}
+
 #replay-btn {
   justify-content: center;
   background-color: purple;
   color: white;
   text-align: center;
-  height: 10vmin;
-  width: 50vmin;
+  height: 8vmin;
+  width: 20vmin;
 }
 
 #hidden {
