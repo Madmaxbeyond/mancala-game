@@ -21,6 +21,7 @@ document.getElementById('replay-btn').addEventListener('click', init);
 /*----- functions -----*/
 function handleMove(evt) {
      // could be replaced with a loop over an array that represents the  "off limits" numbers
+    //  Player cannot click other's player's pockets.
     if(turn === 1 && evt.target.id === '13') return;
     if(turn === 1 && evt.target.id === '12') return;
     if(turn === 1 && evt.target.id === '11') return;
@@ -89,7 +90,7 @@ function render() {
         msgEl.innerText = "Your turn Player Two!";
     }
 
-    gameOverBabe();
+    gameOverNow();
 
     if(board[0] > board[7] && gameOver === true) {
         msgEl.innerText = "Player Two Wins!";
@@ -102,7 +103,7 @@ function render() {
     }
 }
 
-function gameOverBabe() {
+function gameOverNow() {
     if(board[1] + board[2] + board[3] + board[4] + board[5] + board[6] === 0) {
         return gameOver = true;
     }
