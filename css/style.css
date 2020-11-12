@@ -30,7 +30,7 @@ main {
   border-radius: 40%;
   border: 10px black;
   color: whitesmoke;
-  background-color: black;
+  opacity: 0.5;
   margin: 5px;
   padding: 10px;
   z-index: 1;
@@ -44,7 +44,7 @@ main {
   border-radius: 40%;
   border: 10px black;
   color: whitesmoke;
-  background-color: black;
+  opacity: 0.5;
   margin: 5px;
   padding: 10px;
   text-align: center;
@@ -88,10 +88,6 @@ main {
   color: black;
   text-align: center;
   background-color: white;
-}
-
-#lower-msg {
-    justify-content: center;
 }
 
 #replay-btn {

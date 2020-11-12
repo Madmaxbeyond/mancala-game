@@ -21,7 +21,7 @@ document.getElementById('replay-btn').addEventListener('click', init);
 /*----- functions -----*/
 function handleMove(evt) {
      // could be replaced with a loop over an array that represents the  "off limits" numbers
-    //  Player cannot click other's player's pockets.
+    //  Player cannot click other player's pockets.
     if(turn === 1 && evt.target.id === '13') return;
     if(turn === 1 && evt.target.id === '12') return;
     if(turn === 1 && evt.target.id === '11') return;
@@ -36,12 +36,15 @@ function handleMove(evt) {
     if(turn === -1 && evt.target.id === '5') return;
     if(turn === -1 && evt.target.id === '6') return;
 
+    // Players cannot click end pockets.
     if(turn === 1 && evt.target.id === '7') return;
     if(turn === 1 && evt.target.id === '0') return;
     if(turn === -1 && evt.target.id === '7') return;
     if(turn === -1 && evt.target.id === '0') return;
    
+    // Player cannot click anything except the pockets.
     if (evt.target.id === 'container') return;
+
 
     let pitIndex = parseInt(evt.target.id);
     let numOfStones = board[pitIndex];
@@ -49,12 +52,13 @@ function handleMove(evt) {
     board[pitIndex] = 0;
     pitIndex += 1;
 
+    // Loops over the board to assess values and change the values inside each pocket.
     while (numOfStones > 0) {
         // Sends stone around the loop if it lands above index 13
         if (pitIndex === 14){
             pitIndex = 0;
         }
-        // Skips opposite player's pit during turn. (Favorite ¯\_(ツ)_/¯ )
+        // Skips opposite player's end pit during turn. (Favorite! ¯\_(ツ)_/¯ )
         if (pitIndex === 0 && turn === 1) {
             pitIndex = 1;
         }
@@ -79,6 +83,7 @@ function init() {
     render();
 }
 
+// Changes the visible numbers in the browser and assigns messages to player turns.
 function render() {
     board.forEach(function(numOfStones, idx) {
         pockets[idx].innerHTML = numOfStones;
@@ -92,6 +97,7 @@ function render() {
 
     gameOverNow();
 
+    // Assesses win conditions when a player has more points or there is a tie.
     if(board[0] > board[7] && gameOver === true) {
         msgEl.innerText = "Player Two Wins!";
     }
@@ -103,6 +109,7 @@ function render() {
     }
 }
 
+// Assesses game status by checking if indexes on the board are empty.
 function gameOverNow() {
     if(board[1] + board[2] + board[3] + board[4] + board[5] + board[6] === 0) {
         return gameOver = true;
