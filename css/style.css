@@ -8,7 +8,6 @@ body {
   margin: 0 auto;
   text-align: center;
   justify-content: center;
-  /* display: flex; */
 }
 
 main {
@@ -16,42 +15,40 @@ main {
 }
 
 #mancala-title {
-    display: flex;
-    color: black;
-    font-size: 30;
-    font-weight: 500;
-    justify-content: center;
-  }
+  display: flex;
+  color: black;
+  font-size: 200;
+  font-weight: 700;
+  justify-content: center;
+}
 
 #player-1 {
-    grid-column-start: 1;
-    grid-row: span 1 / 2;
-    height: 150px;
-    /* width: 60px; */
-    display: grid;
-    border-radius: 40%;
-    border: 10px black;
-    color: whitesmoke;
-    background-color: black;
-    margin: 5px;
-    padding: 10px;
-    z-index: 1;
-  }
-  
-  #player-2 {
-    grid-column-start: 8;
-    grid-row: span 1 / 2;
-    height: 150px;
-    /* width: 60px; */
-    display: grid;
-    border-radius: 40%;
-    border: 10px black;
-    color: whitesmoke;
-    background-color: black;
-    margin: 5px;
-    padding: 10px;
-    text-align: center;
-  }
+  grid-column-start: 1;
+  grid-row: span 1 / 2;
+  height: 150px;
+  display: grid;
+  border-radius: 40%;
+  border: 10px black;
+  color: whitesmoke;
+  background-color: black;
+  margin: 5px;
+  padding: 10px;
+  z-index: 1;
+}
+
+#player-2 {
+  grid-column-start: 8;
+  grid-row: span 1 / 2;
+  height: 150px;
+  display: grid;
+  border-radius: 40%;
+  border: 10px black;
+  color: whitesmoke;
+  background-color: black;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+}
 
 #container {
   display: grid;
@@ -64,58 +61,45 @@ main {
   border-radius: 5%;
 }
 
+#container :nth-child(9) {
+  order: 14;
+}
+#container :nth-child(10) {
+  order: 13;
+}
+#container :nth-child(11) {
+  order: 12;
+}
+#container :nth-child(12) {
+  order: 11;
+}
+#container :nth-child(13) {
+  order: 10;
+}
+#container :nth-child(14) {
+  order: 9;
+}
+
 .pocket {
   grid-column-start: 2 / 7;
-  /* grid-row-start: 1; */
-  /* grid-row-end: 2; */
   margin: 6px;
   padding: 4vmin;
-  /* display: grid; */
   border-radius: 40%;
-  /* border: 2px black; */
   color: black;
   text-align: center;
   background-color: white;
 }
-
-/* .pocket-a {
-  grid-column-start: 2 / 7;
-  /* grid-row-start: 1; */
-  /* grid-row-end: 2; */
-  margin: 6px;
-  padding: 4vmin;
-  /* display: grid; */
-  border-radius: 40%;
-  /* border: 2px black; */
-  color: black;
-  text-align: center;
-  background-color: white;
-} */
-
-#heaven {
-  background-color: blueviolet;
-  z-index: 0;
-}
-
-/* .pocket-b {
-  grid-column-start: 2 / 7;
-  /* grid-row-end: 2; */
-  /* grid-row-start: 2; */
-  margin: 6px;
-  padding: 4vmin;
-  /* display: grid; */
-  border-radius: 40%;
-  border: 2px black;
-  /* color: black; */
-  background-color: white;
-} */
-
-
 
 #replay-btn {
-  /* display: flex; */
   justify-content: center;
   background-color: purple;
   color: white;
   text-align: center;
+  height: 10vmin;
+  width: 50vmin;
+}
+
+#hidden {
+  z-index: 0;
+  opacity: 0;
 }
