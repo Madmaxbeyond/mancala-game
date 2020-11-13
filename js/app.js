@@ -18,7 +18,7 @@ let replayBtn = document.getElementById('replay-btn');
 // Audio files
 const bgPlayer = document.getElementById('bg-player');
 const bgCheckbox = document.querySelector('input[type="checkbox"]');
-bgPlayer.volume = 1;
+bgPlayer.volume = 0.7;
 
 
 /*----- event listeners -----*/
@@ -133,13 +133,13 @@ function gameOverNow() {
     }
 }
 
-
+// Functions for background music in browser
 function handlePlaySound() {
     // Use the CSS :checked pseudoclass to select the selected radio button
     const selSoundInp = document.querySelector('input[name="sound"]:checked');
     playSound(selSoundInp.value);
-  }
+}
 
-  function handleBgChanged() {
+function handleBgChanged() {
     bgCheckbox.checked ? bgPlayer.play() : bgPlayer.pause();
-  }
+}
