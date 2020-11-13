@@ -105,10 +105,10 @@ function render() {
         pockets[idx].style.border = borderStyle;
     })
     if(turn === 1) {
-        msgEl.innerText = "Player One, it's your turn!";
+        msgEl.innerText = "Player One, It's Your Turn";
     } 
     if(turn === -1) {
-        msgEl.innerText = "Your turn Player Two!";
+        msgEl.innerText = "Your Turn Player Two";
     }
 
     // Assess win conditions when a player has more points or there is a tie.
@@ -119,7 +119,7 @@ function render() {
         msgEl.innerText = "Player Ones Wins!";
     }
     if(board[7] === board[0] && gameOver) {
-        msgEl.innerText = "It's rare but it happens...It's a Tie!";
+        msgEl.innerText = "It's Rare but It Happens...It's a Tie!";
     }
 }
 
