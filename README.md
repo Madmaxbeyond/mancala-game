@@ -5,8 +5,10 @@ Get away from the big city, and join me in my little cottage to play an old-fash
 [Play Cottagecore Mancala!](https://madmaxbeyond.github.io/mancala-game/)
 
 
-Take a peek at the game before you play here:  
-[Gameplay screenshot](https://static.wixstatic.com/media/f12358_878463c129c44d0cb0a560cfd01ba3bf~mv2.png/v1/fill/w_1444,h_730,al_c,q_90,usm_0.66_1.00_0.01/f12358_878463c129c44d0cb0a560cfd01ba3bf~mv2.webp), [another gameplay screenshot](https://static.wixstatic.com/media/f12358_6565a4fab76143f782896241df4cadfa~mv2.png/v1/fill/w_1444,h_730,al_c,q_90,usm_0.66_1.00_0.01/f12358_6565a4fab76143f782896241df4cadfa~mv2.webp) and  [Wireframe](https://static.wixstatic.com/media/f12358_644bd20172f4464a9c330f1df1c0c674~mv2.jpg/v1/fill/w_995,h_746,al_c,q_85,usm_0.66_1.00_0.01/f12358_644bd20172f4464a9c330f1df1c0c674~mv2.webp)  
+Take a peek at the game before you play:  
+![Gameplay screenshot](https://static.wixstatic.com/media/f12358_878463c129c44d0cb0a560cfd01ba3bf~mv2.png/v1/fill/w_1444,h_730,al_c,q_90,usm_0.66_1.00_0.01/f12358_878463c129c44d0cb0a560cfd01ba3bf~mv2.webp)  
+Gameplay screenshot: ![another gameplay screenshot](https://static.wixstatic.com/media/f12358_6565a4fab76143f782896241df4cadfa~mv2.png/v1/fill/w_1444,h_730,al_c,q_90,usm_0.66_1.00_0.01/f12358_6565a4fab76143f782896241df4cadfa~mv2.webp)  
+Wireframe: ![Wireframe](https://static.wixstatic.com/media/f12358_644bd20172f4464a9c330f1df1c0c674~mv2.jpg/v1/fill/w_995,h_746,al_c,q_85,usm_0.66_1.00_0.01/f12358_644bd20172f4464a9c330f1df1c0c674~mv2.webp)  
 
 For this project I used HTML, CSS and JavaScript. I also used a font library from Font Spring. 
 
