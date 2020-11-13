@@ -73,12 +73,20 @@ h2 {
 #container {
   display: grid;
   grid-template-rows: 110px 110px;
-  grid-template-columns: 113px 85px 85px 85px 85px 85px 85px 113px;
+  grid-template-columns: 103px 80px 80px 105px 105px 80px 80px 103px;
   background-image: url(../imgs/mancala-board.jpg);
   background-size: contain;
   border: none;
 }
 
+#container :nth-child(4) {
+    margin-right: 23px;
+    margin-left: 15px;
+}
+#container :nth-child(5) {
+    margin-left: 23px;
+    margin-right: 11px;
+}
 #container :nth-child(9) {
   order: 14;
 }
@@ -90,9 +98,13 @@ h2 {
 }
 #container :nth-child(12) {
   order: 11;
+  margin-left: 23px;
+  margin-right: 11px;
 }
 #container :nth-child(13) {
   order: 10;
+  margin-right: 23px;
+  margin-left: 14px;
 }
 #container :nth-child(14) {
   order: 9;
@@ -100,9 +112,9 @@ h2 {
 
 .pocket {
   grid-column-start: 2 / 7;
-  margin: 10px;
-  padding: 4vmin;
-  border-radius: 40%;
+  margin: 10px 5px;
+  padding: 30px 19px 19px 19px;
+  border-radius: 45%;
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-align: center;
