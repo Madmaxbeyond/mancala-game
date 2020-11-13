@@ -14,13 +14,25 @@ main {
   display: flex;
 }
 
+h1 {
+    font-family: 'santeliaroughline', Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin: auto;
+}
+
+h3 {
+    font-family: 'santeliaroughline', Georgia, 'Times New Roman', Times, serif;
+    font-size: 48px;
+    margin: auto;
+}
+/* 
 #mancala-title {
   display: flex;
   color: black;
   font-size: 200;
   font-weight: 700;
   justify-content: center;
-}
+} */
 
 #player-1 {
   grid-column-start: 1;
