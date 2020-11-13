@@ -6,8 +6,8 @@ Get away from the big city, and join me in my little cottage to play an old-fash
 
 
 Take a peek at the game before you play:  
-![Gameplay screenshot](https://static.wixstatic.com/media/f12358_878463c129c44d0cb0a560cfd01ba3bf~mv2.png/v1/fill/w_1444,h_730,al_c,q_90,usm_0.66_1.00_0.01/f12358_878463c129c44d0cb0a560cfd01ba3bf~mv2.webp)  
-Gameplay screenshot: ![another gameplay screenshot](https://static.wixstatic.com/media/f12358_6565a4fab76143f782896241df4cadfa~mv2.png/v1/fill/w_1444,h_730,al_c,q_90,usm_0.66_1.00_0.01/f12358_6565a4fab76143f782896241df4cadfa~mv2.webp)  
+![Gameplay screenshot](https://static.wixstatic.com/media/f12358_6a76c75702af431d8625ef60893e7517~mv2.png/v1/fill/w_821,h_505,al_c,q_90,usm_0.66_1.00_0.01/f12358_6a76c75702af431d8625ef60893e7517~mv2.webp)  
+Gameplay screenshot: ![another gameplay screenshot](https://static.wixstatic.com/media/f12358_b8770463461947458466845ae7ddb11c~mv2.png/v1/fill/w_823,h_505,al_c,q_90,usm_0.66_1.00_0.01/f12358_b8770463461947458466845ae7ddb11c~mv2.webp)  
 Wireframe: ![Wireframe](https://static.wixstatic.com/media/f12358_644bd20172f4464a9c330f1df1c0c674~mv2.jpg/v1/fill/w_995,h_746,al_c,q_85,usm_0.66_1.00_0.01/f12358_644bd20172f4464a9c330f1df1c0c674~mv2.webp)  
 
 For this project I used HTML, CSS and JavaScript. I also used a font library from Font Spring. 
