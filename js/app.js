@@ -68,7 +68,7 @@ function distributeStones(pitIndex) {
     board[pitIndex] = 0;
     pitIndex += 1;
     while (numOfStones > 0) {
-        // Send stone around the loop if it lands above index 13
+        // Send stone around the loop if it lands above index 13.
         if (pitIndex === 14){
             pitIndex = 0;
         }

@@ -132,8 +132,9 @@ a:-webkit-any-link {
     text-shadow: 2px 2px 4px whitesmoke;
     cursor: pointer;
     text-decoration: underline;
+}
 
-#hidden {
+.hidden {
   z-index: 0;
   opacity: 0;
 }
