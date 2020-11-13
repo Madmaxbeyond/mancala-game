@@ -15,10 +15,17 @@ let pockets = document.querySelectorAll('.pocket');
 let msgEl = document.getElementById('msg');
 let replayBtn = document.getElementById('replay-btn');
 
+// Audio files
+const bgPlayer = document.getElementById('bg-player');
+const bgCheckbox = document.querySelector('input[type="checkbox"]');
+bgPlayer.volume = 1;
+
 
 /*----- event listeners -----*/
 document.getElementById('container').addEventListener('click', handleMove);
 document.getElementById('replay-btn').addEventListener('click', init);
+
+bgCheckbox.addEventListener('change', handleBgChanged);
 
 
 /*----- functions -----*/
@@ -125,3 +132,14 @@ function gameOverNow() {
         return gameOver = true;
     }
 }
+
+
+function handlePlaySound() {
+    // Use the CSS :checked pseudoclass to select the selected radio button
+    const selSoundInp = document.querySelector('input[name="sound"]:checked');
+    playSound(selSoundInp.value);
+  }
+
+  function handleBgChanged() {
+    bgCheckbox.checked ? bgPlayer.play() : bgPlayer.pause();
+  }
