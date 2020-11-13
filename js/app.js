@@ -1,5 +1,8 @@
 /*----- constants -----*/
-
+const playerPits = {
+    '1': [1,2,3,4,5,6],
+    '-1': [8,9,10,11,12,13]
+};
 
 /*----- app's state (variables) -----*/
 let turn = 1;
@@ -19,40 +22,44 @@ document.getElementById('replay-btn').addEventListener('click', init);
 
 
 /*----- functions -----*/
-function handleMove(evt) {
-     // could be replaced with a loop over an array that represents the  "off limits" numbers
-    //  Player cannot click other player's pockets.
-    if(turn === 1 && evt.target.id === '13') return;
-    if(turn === 1 && evt.target.id === '12') return;
-    if(turn === 1 && evt.target.id === '11') return;
-    if(turn === 1 && evt.target.id === '10') return;
-    if(turn === 1 && evt.target.id === '9') return;
-    if(turn === 1 && evt.target.id === '8') return;
-   
-    if(turn === -1 && evt.target.id === '1') return;
-    if(turn === -1 && evt.target.id === '2') return;
-    if(turn === -1 && evt.target.id === '3') return;
-    if(turn === -1 && evt.target.id === '4') return;
-    if(turn === -1 && evt.target.id === '5') return;
-    if(turn === -1 && evt.target.id === '6') return;
+function isValidPitClicked(pitIndex) {
+    return playerPits[turn].includes(pitIndex);
+}
 
-    // Players cannot click end pockets.
-    if(turn === 1 && evt.target.id === '7') return;
-    if(turn === 1 && evt.target.id === '0') return;
-    if(turn === -1 && evt.target.id === '7') return;
-    if(turn === -1 && evt.target.id === '0') return;
-   
+function handleMove(evt) {
     // Player cannot click anything except the pockets.
     if (evt.target.id === 'container') return;
 
-
+    // Where the player clicks.
     let pitIndex = parseInt(evt.target.id);
-    let numOfStones = board[pitIndex];
 
-    board[pitIndex] = 0;
-    pitIndex += 1;
+    // Players cannot click end pockets nor click a pit with value zero.
+    if(!isValidPitClicked(pitIndex) || pitIndex === 7 || pitIndex === 0 
+        || board[pitIndex] === 0 || gameOver) return;
 
     // Loops over the board to assess values and change the values inside each pocket.
+    distributeStones(pitIndex);
+    gameOverNow();
+    render();
+}
+
+function updateTurn(pitIndex) {
+    if (pitIndex - 1 === 0 && turn === -1) {
+        return;
+    }
+    if (pitIndex - 1 === 7 && turn === 1) {
+        return;
+    }
+    turn *= -1;
+}
+
+
+
+function distributeStones(pitIndex) {
+    // Number of stones/value depending on where player clicked.
+    let numOfStones = board[pitIndex];
+    board[pitIndex] = 0;
+    pitIndex += 1;
     while (numOfStones > 0) {
         // Sends stone around the loop if it lands above index 13
         if (pitIndex === 14){
@@ -65,13 +72,12 @@ function handleMove(evt) {
         if (pitIndex === 7 && turn === -1) {
             pitIndex = 8;
         }
-        // continue? to skip wells at 0 and 7
         board[pitIndex] += 1;
         numOfStones -= 1;
         pitIndex += 1;
     }
-    turn *= -1;
-    render();
+    // Call the updateTurn function to add an extra turn when player's last stone ends in own mancala.
+    updateTurn(pitIndex);
 }
 
 init();
@@ -87,6 +93,9 @@ function init() {
 function render() {
     board.forEach(function(numOfStones, idx) {
         pockets[idx].innerHTML = numOfStones;
+        const borderStyle = playerPits[turn].includes(idx) && numOfStones && !gameOver ? 
+            '4px solid lime' : '4px solid white';
+        pockets[idx].style.border = borderStyle;
     })
     if(turn === 1) {
         msgEl.innerText = "Player One, it's your turn!";
@@ -95,16 +104,14 @@ function render() {
         msgEl.innerText = "Your turn Player Two!";
     }
 
-    gameOverNow();
-
     // Assesses win conditions when a player has more points or there is a tie.
-    if(board[0] > board[7] && gameOver === true) {
+    if(board[0] > board[7] && gameOver) {
         msgEl.innerText = "Player Two Wins!";
     }
-    if(board[7] > board[0] && gameOver === true) {
+    if(board[7] > board[0] && gameOver) {
         msgEl.innerText = "Player Ones Wins!";
     }
-    if(board[7] === board[0] && gameOver === true) {
+    if(board[7] === board[0] && gameOver) {
         msgEl.innerText = "It's rare but it happens...It's a Tie!";
     }
 }

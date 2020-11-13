@@ -56,7 +56,7 @@ main {
   grid-template-rows: 80px 80px;
   grid-template-columns: 100px 80px 80px 80px 80px 80px 80px 100px;
   border: 10px black;
-  background-color: blueviolet;
+  background-color: rgb(252, 136, 250);
   padding: 15px;
   border-radius: 5%;
 }
@@ -92,11 +92,12 @@ main {
 
 #replay-btn {
   justify-content: center;
-  background-color: purple;
+  background-color: rgb(232,46,229);
   color: white;
   text-align: center;
   height: 8vmin;
   width: 20vmin;
+  border-radius: 15%;
 }
 
 #hidden {
