@@ -68,11 +68,11 @@ function distributeStones(pitIndex) {
     board[pitIndex] = 0;
     pitIndex += 1;
     while (numOfStones > 0) {
-        // Sends stone around the loop if it lands above index 13
+        // Send stone around the loop if it lands above index 13
         if (pitIndex === 14){
             pitIndex = 0;
         }
-        // Skips opposite player's end pit during turn. (Favorite! ¯\_(ツ)_/¯ )
+        // Skip opposite player's end pit during turn. (Favorite! ¯\_(ツ)_/¯ )
         if (pitIndex === 0 && turn === 1) {
             pitIndex = 1;
         }
@@ -96,7 +96,7 @@ function init() {
     render();
 }
 
-// Changes the visible numbers in the browser and assigns messages to player turns.
+// Change the visible numbers in the browser and assigns messages to player turns.
 function render() {
     board.forEach(function(numOfStones, idx) {
         pockets[idx].innerHTML = numOfStones;
@@ -111,7 +111,7 @@ function render() {
         msgEl.innerText = "Your turn Player Two!";
     }
 
-    // Assesses win conditions when a player has more points or there is a tie.
+    // Assess win conditions when a player has more points or there is a tie.
     if(board[0] > board[7] && gameOver) {
         msgEl.innerText = "Player Two Wins!";
     }
@@ -123,7 +123,7 @@ function render() {
     }
 }
 
-// Assesses game status by checking if indexes on the board are empty.
+// Assess game status by checking if indexes on the board are empty.
 function gameOverNow() {
     if(board[1] + board[2] + board[3] + board[4] + board[5] + board[6] === 0) {
         return gameOver = true;
@@ -133,7 +133,7 @@ function gameOverNow() {
     }
 }
 
-// Functions for background music in browser
+// Background music in browser.
 function handlePlaySound() {
     // Use the CSS :checked pseudoclass to select the selected radio button
     const selSoundInp = document.querySelector('input[name="sound"]:checked');
