@@ -116,7 +116,7 @@ function render() {
         msgEl.innerText = "Player Two Wins!";
     }
     if(board[7] > board[0] && gameOver) {
-        msgEl.innerText = "Player Ones Wins!";
+        msgEl.innerText = "Player One Wins!";
     }
     if(board[7] === board[0] && gameOver) {
         msgEl.innerText = "It's Rare but It Happens...It's a Tie!";
